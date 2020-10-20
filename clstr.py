@@ -59,10 +59,11 @@ def main():
         num_columns = df.select_dtypes(include=numerics).columns.tolist()
 
         f = st.multiselect('Features', num_columns,num_columns)
+        str_f = ''.join(f)
 
         if len(f) >= 2:
             clusters = st.slider('Number of clusters',2,12,5)
-            ga('CLSTR', data, f)
+            ga('CLSTR', data, str_f)
             df, p = clstr(df, f, n_clusters=clusters)
 
 
