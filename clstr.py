@@ -13,6 +13,7 @@ import datetime
 
 def main():
     st.image('./img/clstr.png',use_column_width=True)
+    ga('CLSTR', 'Page Load', 'Page Load')
     st.write('CLSTR is meant to take a multi-dimensional dataset and output a visualization with clusters to help quickly segment the data and provide some initial intelligence. Play around with some of the datasets available here or feel free to upload your own.')
 
     st.markdown('### Select a dataset -- or upload your own')
@@ -80,6 +81,10 @@ def main():
 
         else:
             st.write('You have to select at least two columns')
+
+
+def ga(event_category, event_action, event_label):
+    st.write('<img src="https://www.google-analytics.com/collect?v=1&tid=UA-18433914-1&cid=555&aip=1&t=event&ec='+event_category+'&ea='+event_action+'&el='+event_label+'">',unsafe_allow_html=True)
 
 
 
