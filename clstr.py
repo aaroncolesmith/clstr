@@ -45,6 +45,8 @@ def main():
             uploaded_file.seek(0)
             df = pd.read_csv(uploaded_file)
 
+    ga('CLSTR', data, data)
+
     if df.size>0:
 
         st.markdown('### Preview of your data:')
@@ -60,6 +62,7 @@ def main():
 
         if len(f) >= 2:
             clusters = st.slider('Number of clusters',2,12,5)
+            ga('CLSTR', data, f)
             df, p = clstr(df, f, n_clusters=clusters)
 
 
@@ -72,8 +75,10 @@ def main():
 
             if advanced:
                 scatter(df,p,hover,show_features=1)
+                ga('CLSTR', data, 'graph_drawn')
             else:
                 scatter(df,p,hover,show_features=0)
+                ga('CLSTR', data, 'graph_drawn')
 
 
 
