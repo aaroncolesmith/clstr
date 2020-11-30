@@ -21,10 +21,13 @@ def main():
     df=pd.DataFrame()
 
     data = st.selectbox('Data',
-    ('2020 NBA Playoffs','NBA Yearly Statistics','Iris Dataset','Upload CSV'))
+    ('2020 NBA Playoffs','NBA Yearly Statistics','Iris Dataset','NBA 2K21', 'Upload CSV'))
 
     if data == '2020 NBA Playoffs':
         df=pd.read_csv('./data/2020_playoff_games.csv')
+
+    if data == 'NBA 2K21':
+        df=pd.read_csv('./data/2k_players.csv')
 
     if data == 'NBA Yearly Statistics':
         df=pd.read_csv('./data/nba_year_stats.csv')
